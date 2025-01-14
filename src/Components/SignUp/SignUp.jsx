@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Link } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 import './SignUp.css';
 
 const SignUp = ({ onSignUpSuccess }) => {
+
+  const navigate = useNavigate();
+  
+    const handlelogInAccountClick = () => {
+      navigate("/login");
+    };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,7 +40,6 @@ const SignUp = ({ onSignUpSuccess }) => {
       return;
     }
 
-    // Sign-up success logic here
     onSignUpSuccess?.();
   };
 
@@ -97,7 +104,7 @@ const SignUp = ({ onSignUpSuccess }) => {
 
         <Typography className="login-link">
           Already have an account?{' '}
-          <Link href="/login" underline="hover">
+          <Link underline="hover" onClick={handlelogInAccountClick}>
             Log in
           </Link>
         </Typography>

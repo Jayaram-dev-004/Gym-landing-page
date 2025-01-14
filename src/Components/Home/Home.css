@@ -35,7 +35,6 @@ body {
   margin-right:25%;
   margin-bottom:15%;
   max-width: 800px;
-  /* width:50%; */
   border-radius: 12px;
   z-index: 1;
   animation: fade-in 1.5s ease-in-out;
@@ -53,10 +52,6 @@ body {
   color: #ddd;
   margin: 1.5rem 0;
 }
-
-/* .home-button {
-  transition: transform 0.3s ease, background-color 0.3s;
-} */
 
 .home-button:hover {
   transform: translateY(-3px);
@@ -97,7 +92,7 @@ body {
     bottom: -5%;
     right: -10%;
     width: 100%;
-    max-width: 300px; /* Reduce size for smaller screens */
+    max-width: 300px; 
   }
 }
 

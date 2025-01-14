@@ -15,7 +15,7 @@ const About = () => {
           }
         });
       },
-      { threshold: 0.2 } // Trigger when 20% of the element is visible
+      { threshold: 0.2 }
     );
 
     const aboutSection = document.querySelector('#about');
@@ -29,7 +29,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className={`about-container ${isVisible ? 'animate' : ''}`} // Add the "animate" class on visibility
+      className={`about-container ${isVisible ? 'animate' : ''}`} 
     >
       {/* Image Section */}
       <div className="about-img-container">

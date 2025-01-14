@@ -1,28 +1,3 @@
-// import About from './Components/AboutUs/About.jsx'
-// import Contact from './Components/Contact/Contact.jsx'
-// import Header from './Components/Home/Header.jsx'
-// import Home from './Components/Home/Home.jsx'
-// import Pricing from './Components/Pricing/Pricing.jsx'
-// import Program from './Components/Program/Program.jsx'
-// import Login from './Components/Login/Login.jsx'
-// import SignUp from './Components/SignUp/SignUp.jsx'
-// function App() {
-
-//   return (
-//     <>
-//       <Login/>
-//       <SignUp/>
-//       <Header/>
-//       <Home/>
-//       <About/>
-//       <Program/>
-//       <Pricing/>
-//       <Contact/>
-//     </>
-//   )
-// }
-
-// export default App
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Components/Home/Header";

@@ -1,17 +1,3 @@
-// import React from 'react'
-// import "./Button.css"
-
-// function Button({name,image}) {
-//     return (
-//         <button className='btn'>
-//             <img src={image} />
-//             <p className='btn_name'>{name}</p>
-//         </button>
-//     )
-// }
-
-// export default Button
-
 import React from 'react';
 import './Button.css';
 
