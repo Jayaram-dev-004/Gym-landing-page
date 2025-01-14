@@ -1,0 +1,17 @@
+.button-txt {
+  background-color: #00ffff;
+  color: #211E29;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button-txt:hover{
+    background-color: transparent;
+    color:#00ffff;
+    transform: scale(1.1);
+    border: 0.15rem solid #00ffff;
+}

@@ -1,0 +1,54 @@
+/* Container Styling */
+.sign-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 1rem;
+  }
+  
+  .sign-up-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Title */
+  .sign-up-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Error Text */
+  .error-text {
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Button */
+  .sign-up-button {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.6rem;
+    border-radius: 4px;
+    text-transform: capitalize;
+  }
+  
+  /* Login Link */
+  .login-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .login-link a {
+    color: #667eea;
+    font-weight: bold;
+  }

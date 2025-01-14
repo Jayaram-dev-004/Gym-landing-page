@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+/* Main Container */
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+}
+
+.home {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: url("../../assets/background.png") center/cover no-repeat;
+  
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Content Section */
+.home-content {
+  position: relative;
+  width: 50%;
+  margin-right:25%;
+  margin-bottom:15%;
+  max-width: 800px;
+  /* width:50%; */
+  border-radius: 12px;
+  z-index: 1;
+  animation: fade-in 1.5s ease-in-out;
+}
+
+/* Text Styling */
+.home-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.home-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #ddd;
+  margin: 1.5rem 0;
+}
+
+/* .home-button {
+  transition: transform 0.3s ease, background-color 0.3s;
+} */
+
+.home-button:hover {
+  transform: translateY(-3px);
+  background-color: #00b488;
+}
+
+/* Gym Girl Image */
+.gym-girl-wrapper {
+  position: absolute;
+  left: 100%;
+  width: 75%; 
+  max-width: 500px;
+}
+
+.gym-girl-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  opacity: 1;
+  transition: transform 0.3s ease;
+  animation: slide-in 1.5s ease-in-out; 
+}
+
+/* Gym Girl Hover Effect */
+.gym-girl-wrapper:hover .gym-girl-image {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-content {
+    width: 90%;
+  }
+
+  .gym-girl-wrapper {
+    bottom: -5%;
+    right: -10%;
+    width: 100%;
+    max-width: 300px; /* Reduce size for smaller screens */
+  }
+}
+
+@media  (max-width:900px){
+  .home{
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .home-content{
+    margin: 0;
+    width:75%;
+    position:static;
+  }
+
+  .gym-girl-wrapper{
+    justify-self: center;
+    position: static;
+    max-width: 800px;
+    margin-top: 3rem;
+  }
+
+
+  .gym-girl-image{
+    width:100%;
+    display:block;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
