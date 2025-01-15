@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box, Typography, Link } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+import { TextField, Button, Box, Typography } from '@mui/material';
+import { Link } from "react-router-dom";
+import axios from "axios";
 import './SignUp.css';
 
 const SignUp = ({ onSignUpSuccess }) => {
 
-  const navigate = useNavigate();
-  
-    const handlelogInAccountClick = () => {
-      navigate("/login");
-    };
-
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
-    password: '',
-    confirmPassword: '',
+    password: ''
   });
 
   const [error, setError] = useState('');
@@ -23,24 +17,50 @@ const SignUp = ({ onSignUpSuccess }) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.username]: e.target.value,
     });
   };
 
-  const handleSignUp = () => {
-    const { name, email, password, confirmPassword } = formData;
-
-    if (!name || !email || !password || !confirmPassword) {
-      setError('Please fill out all fields.');
+  const handleSignUp = async () => {
+    const { username, email, password} = formData;
+  
+    if (!username || !email || !password) {
+      setError("Please fill out all fields.");
       return;
     }
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
+  
+    // if (password !== confirmPassword) {
+    //   setError("Passwords do not match.");
+    //   return;
+    // }
+  
+    try {
+      
+      const response = await axios.post("http://localhost:9000/register", {
+        username,
+        email,
+        password,
+      });
+  
+      console.log("Sign up successful:", response.data);
+  
+     
+      setFormData({
+        username: "",
+        email: "",
+        password: ""
+      });
+  
+      setError("");
+      onSignUpSuccess?.(); 
+    } catch (err) {
+  
+      if (err.response && err.response.data) {
+        setError(err.response.data.message);
+      } else {
+        setError("An error occurred. Please try again.");
+      }
     }
-
-    onSignUpSuccess?.();
   };
 
   return (
@@ -57,8 +77,8 @@ const SignUp = ({ onSignUpSuccess }) => {
           variant="outlined"
           fullWidth
           margin="normal"
-          name="name"
-          value={formData.name}
+          name="username"
+          value={formData.username}
           onChange={handleChange}
         />
         <TextField
@@ -81,7 +101,7 @@ const SignUp = ({ onSignUpSuccess }) => {
           onChange={handleChange}
           type="password"
         />
-        <TextField
+        {/*<TextField
           label="Confirm Password"
           variant="outlined"
           fullWidth
@@ -90,7 +110,7 @@ const SignUp = ({ onSignUpSuccess }) => {
           value={formData.confirmPassword}
           onChange={handleChange}
           type="password"
-        />
+        />*/}
 
         <Button
           variant="contained"
@@ -104,7 +124,7 @@ const SignUp = ({ onSignUpSuccess }) => {
 
         <Typography className="login-link">
           Already have an account?{' '}
-          <Link underline="hover" onClick={handlelogInAccountClick}>
+          <Link to="/login"  >
             Log in
           </Link>
         </Typography>

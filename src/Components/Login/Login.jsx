@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
@@ -7,12 +7,9 @@ import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleCreateAccountClick = () => {
-    navigate("/signup");
-  };
 
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -28,22 +25,22 @@ const Login = () => {
 // Requesting form server
 const handleSubmit = async (e) => {
   e.preventDefault();
-  const { email, password } = formData;
+  const { username, password } = formData;
 
-  if (!email || !password) {
+  if (!username || !password) {
     setError("Please fill out all fields.");
     return;
   }
 
   try {
-    const response = await axios.post("http://localhost:5000/login", {
-      email,
+    const response = await axios.post("http://localhost:9000/login", {
+      username,
       password,
     });
 
     console.log("Login successful:", response.data);
     setError(""); 
-    setFormData({ email: "", password: "" }); 
+    setFormData({ username: "", password: "" }); 
     navigate("/dashboard"); 
     
 
@@ -64,13 +61,13 @@ return (
       {error && <p className="error-text">{error}</p>}
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">Username</label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            value={formData.username}
             onChange={handleChange}
             required
           />
@@ -96,13 +93,7 @@ return (
 
       <div className="login-footer">
         <span>Don't have an account? </span>
-        <a
-          className="create-account-btn"
-          onClick={handleCreateAccountClick}
-          href="#"
-        >
-          Create Account
-        </a>
+        <Link to ="/signup">Create an account</Link>
       </div>
     </div>
   </div>
