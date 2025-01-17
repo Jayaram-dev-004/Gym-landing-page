@@ -17,7 +17,7 @@ const SignUp = ({ onSignUpSuccess }) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.username]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -36,7 +36,7 @@ const SignUp = ({ onSignUpSuccess }) => {
   
     try {
       
-      const response = await axios.post("http://localhost:9000/register", {
+      const response = await axios.post("https://loginpage-uij1.onrender.com/register", {
         username,
         email,
         password,
